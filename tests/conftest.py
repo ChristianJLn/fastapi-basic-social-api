@@ -11,7 +11,7 @@ from app import models
 
 import pytest
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.db_username}:{settings.db_password}@{settings.db_hostname}:5431/{settings.db_name}-test"
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.db_username}:{settings.db_password}@{settings.db_hostname}:{settings.db_port}/{settings.db_name}-test"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
