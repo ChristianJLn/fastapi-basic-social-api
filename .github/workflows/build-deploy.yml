@@ -6,9 +6,26 @@ on: [push, pull_request]
   # pull_request:
   #   branches:
   #     - main
-
+# env:
+#   DB_HOSTNAME: basic-social-postgres
+#   DB_PORT: 5432
+#   DB_PASSWORD: jfSAi8445bi2
+#   DB_NAME: fastapi-basic-social-db
+#   DB_USERNAME: postgres
+#   SECRET_KEY: nnga78dfsa79dfsao893485j66h868756j654h6k3h2by34n2n5h3425645jh794537
+#   ALGORITHM: HS256
+#   ACCESS_TOKEN_EXPIRE_MINUTES: 60
 jobs:
   job1:
+    env:
+      DB_HOSTNAME: basic-social-postgres
+      DB_PORT: 5432
+      DB_PASSWORD: jfSAi8445bi2
+      DB_NAME: fastapi-basic-social-db
+      DB_USERNAME: postgres
+      SECRET_KEY: nnga78dfsa79dfsao893485j66h868756j654h6k3h2by34n2n5h3425645jh794537
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
     runs-on: ubuntu-latest
     steps:
       - name: Pulling git repo
