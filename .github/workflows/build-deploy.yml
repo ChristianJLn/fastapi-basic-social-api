@@ -16,7 +16,7 @@ on: [push, pull_request]
 #   ALGORITHM: HS256
 #   ACCESS_TOKEN_EXPIRE_MINUTES: 60
 jobs:
-  job1:
+  build:
     environment:
       name: Testing BS FastAPI
     env:
@@ -59,3 +59,24 @@ jobs:
         run: |
           pip install pytest
           pytest -v
+      # You can send this directly to docker hub
+      - name: Push changes to Prod
+  
+  # deploy:
+  #   environment:
+  #     name: Deploying BS FastAPI
+  #   needs: [build]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Starting deploy
+  #       run: echo "Deploying..."
+  #     - name: Deploy to ubuntu server
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{secrets.PROD_HOST}}
+  #         username: ${{secrets.PROD_USERNAME}}
+  #         password: ${{secrets.PROD_PASSWORD}}
+  #         script: |
+  #           cd app/src
+  #           git pull
+  #           echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
